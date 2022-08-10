@@ -44,18 +44,16 @@ const step3 = (step: number): Promise<number> => {
     });
 }
 
-step1()
-.then(result => {
-    return step2(result);
-})
-.then(result => {
-    return step3(result);
-})
-.then(() => {
-    console.log("your home finished")
-})
-.catch(() => {
-    console.log("error happened")
-})
+const build = async() => {
+    try{
+        const step11 = await step1();
+        const step22 = await step2(step11);
+        await step3(step22);
+        console.log("your home is finished");
+    }
+    catch{
+    console.log("error happened");
+    }
+}
 
-
+build();
