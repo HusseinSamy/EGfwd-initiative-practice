@@ -4,7 +4,7 @@ const app = express();
 const port = 5000;
 
 
-app.get('/api', (res , rej) => {
+app.get('/api', (req , res) => {
     res.send("hello world!");
 });
 

@@ -1,8 +1,9 @@
 import myFunc from '../testing_practice'
 import countries from '../countries_api'
 import supertest from 'supertest'
-import app from '../basic_express_api'
-import { request } from 'http'
+import app from '../../src/basic_express_api'
+
+const request = supertest(app);
 
 describe('Suite for myFunc function', () => {
 
