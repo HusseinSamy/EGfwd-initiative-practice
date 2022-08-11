@@ -1,7 +1,7 @@
-import myFunc from '../testing_practice'
-import countries from '../countries_api'
+import myFunc from '../testingPractice'
+import countries from '../countriesApi'
 import supertest from 'supertest'
-import app from '../../src/basic_express_api'
+import app from '../basicExpressApi'
 
 const request = supertest(app);
 
