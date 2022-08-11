@@ -7,3 +7,5 @@ const port = 5000;
 app.use('/api', routes)
 
 app.listen(port, () => console.log(`listening on port ${port}`));
+
+export default app;
