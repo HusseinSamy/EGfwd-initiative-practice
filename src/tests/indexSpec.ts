@@ -1,5 +1,8 @@
 import myFunc from '../testing_practice'
 import countries from '../countries_api'
+import supertest from 'supertest'
+import app from '../basic_express_api'
+import { request } from 'http'
 
 describe('Suite for myFunc function', () => {
 
@@ -35,4 +38,13 @@ describe ('Suite for countries api specs', () => {
       const data = await countries.getRegionCountries('New-York');
       expect(data).toEqual(['first country', 'second country', 'and so on']);
   } )
+})
+
+
+describe('Suite for express basic api', () => {
+  it ('expects to check api status code', async (done) => {
+    const response = await request.get('/api');
+    expect(response.status).toBe(200);
+    done();
+  })
 })
