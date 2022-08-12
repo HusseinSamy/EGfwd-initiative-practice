@@ -21,8 +21,8 @@ app.get('/convert', (req, res) => {
                 }
                 return {first, last, phone}
             });
-            fsPromises.writeFile(outputFile,JSON.stringify(data));
-            res.send(data);
+            fsPromises.writeFile(outputFile,JSON.stringify(newData));
+            res.send(newData);
         })
     }
     catch(error) {
