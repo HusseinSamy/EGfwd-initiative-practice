@@ -16,6 +16,11 @@ app.get('/convert', async(req, res) => {
         console.log(jsonObj);
     })
     const jsonArray = await csv().fromFile(csvFilePath);
+    jsonArray.forEach(e => {
+        if(e['phone'] === ''){
+            e['phone'] = 'missing phone';
+        }
+    });
     res.send(jsonArray);
 })
 
