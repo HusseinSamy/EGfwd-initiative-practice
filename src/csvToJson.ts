@@ -7,23 +7,23 @@ const outputFile = './output/data.txt';
 const app = express();
 const port = 3000;
 
-app.get('/convert', async(req, res) => {
+app.get('/convert', (req, res) => {
     try{
-
         csv()
         .fromFile(csvFilePath)
-        .then((jsonObj)=>{
-            console.log(jsonObj);
+        .then((data) =>{
+            let newData = data.map((item: {first_name: string , last_name: string, phone: string})=> {
+                let first = item.first_name;
+                let last = item.last_name;
+                let phone = item.phone;
+                if(phone === ''){
+                    phone = 'missing data';
+                }
+                return {first, last, phone}
+            });
+            fsPromises.writeFile(outputFile,JSON.stringify(data));
+            res.send(data);
         })
-        const jsonArray = await csv().fromFile(csvFilePath);
-        jsonArray.forEach(e => {
-            if(e['phone'] === ''){
-                e['phone'] = 'missing phone';
-            }
-        });
-        
-        const file = await fsPromises.writeFile(outputFile,JSON.stringify(jsonArray));
-        res.send(jsonArray);
     }
     catch(error) {
         console.log(error)
