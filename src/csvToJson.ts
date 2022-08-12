@@ -1,14 +1,14 @@
 import express from 'express';
 import csv from 'csvtojson'
 
-const csvFilePath='<path to csv file>'
+const csvFilePath='C:/Users/Weshkl/Desktop/EGfwd initiative practice/assets/users.csv'
 
 
 
 const app = express();
 const port = 3000;
 
-app.get('/convert', async() => {
+app.get('/convert', async(req, res) => {
     
     csv()
     .fromFile(csvFilePath)
@@ -16,7 +16,7 @@ app.get('/convert', async() => {
         console.log(jsonObj);
     })
     const jsonArray = await csv().fromFile(csvFilePath);
-    return jsonArray;
+    res.send(jsonArray);
 })
 
 app.listen(port, () => {
