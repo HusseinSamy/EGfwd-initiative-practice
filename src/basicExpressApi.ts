@@ -8,6 +8,8 @@ app.get('/api', (req , res) => {
     res.send("hello world!");
 });
 
+app.use
+
  app.listen(port, ()=> console.log(`listening on port ${port};`));
 
  export default app;
