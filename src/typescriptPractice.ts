@@ -1,4 +1,4 @@
-const koko : string = "Hamada";
+const name : string = "Hamada";
 const num = 2;
 const num_str = '3';
 
@@ -7,7 +7,7 @@ function add(num1: number , num2: number){
 }
 
 
-console.log(koko);
+console.log(name);
 
 const myName = "Hussein";
 
