@@ -3,7 +3,7 @@ import csv from 'csvtojson'
 import {promises as fsPromises}  from 'fs'
 
 const csvFilePath = 'C:/Users/Weshkl/Desktop/EGfwd initiative practice/assets/users.csv'
-const outputFile = './output/data.txt';
+const outputFile = '../output/data.txt';
 const app = express();
 const port = 3000;
 
