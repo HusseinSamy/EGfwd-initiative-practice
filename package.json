@@ -7,7 +7,8 @@
     "build": "npx tsc",
     "jasmine": "jasmine",
     "test": "npm run build && npm run jasmine",
-    "nodemon": "nodemon src/expressApiIntro.ts"
+    "nodemon": "nodemon src/expressApiIntro.ts",
+    "database-test": "cross-env ENV=test db-migrate --env test up && npm run jasmine && db-migrate db:drop test"
   },
   "keywords": [],
   "author": "",
@@ -28,7 +29,10 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "csvtojson": "^2.0.10",
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
     "express": "^4.18.1",
     "pg": "^8.7.3",
     "supertest": "^6.2.4"
