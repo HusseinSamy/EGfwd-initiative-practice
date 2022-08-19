@@ -1,5 +1,5 @@
 import express from 'express'
-import logger from '../../middlewares/loggingMiddleware'
+import logger from '../../_Section_1/middlewares/loggingMiddleware'
 
 
 const admin = express.Router();

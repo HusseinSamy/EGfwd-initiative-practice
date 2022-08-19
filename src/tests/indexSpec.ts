@@ -1,7 +1,7 @@
-import myFunc from '../testingPractice'
-import countries from '../countriesApi'
+import myFunc from '../_Section_1/testingPractice'
+import countries from '../_Section_1/countriesApi'
 import supertest from 'supertest'
-import app from '../basicExpressApi'
+import app from '../_Section_1/basicExpressApi'
 
 const request = supertest(app);
 
@@ -43,9 +43,8 @@ describe('Suite for myFunc function', () => {
 
 
 describe('Suite for express basic api', () => {
-  it ('expects to check api status code', async (done) => {
+  it ('expects to check api status code', async () => {
     const response = await request.get('/api');
     expect(response.status).toBe(200);
-    done();
   })
 })
