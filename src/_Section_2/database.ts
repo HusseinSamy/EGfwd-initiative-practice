@@ -4,13 +4,15 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 
-const {
+export const {
 POSTGRES_DB,
 POSTGRES_USER,
 POSTGRES_PASSWORD,
 POSTGRES_HOST,
 POSTGRES_TEST,
-ENV
+ENV,
+BCRYPT_PASSWORD,
+SALT_ROUNDS
 } = process.env;
 
 let database: Pool = new Pool({
