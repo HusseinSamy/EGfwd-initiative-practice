@@ -12,13 +12,14 @@ export interface IBook {
 
 export class BookStore {
 
-    async post(title: string, author: string, total_pages: number, type: string, summary: string): Promise<IBook> {
+    async create(title: string, author: string, total_pages: number, type: string, summary: string): Promise<IBook> {
         try{
             const connection = await database.connect();
-            const query = `INSERT INTO books (title, author, total_pages, type, summary) VALUES ($1,$2,$3,$4,$5)`;
+            const query = `INSERT INTO books (title, author, total_pages, type, summary) VALUES ($1,$2,$3,$4,$5) RETURNING *`;
             const result = await connection.query(query, [title,author,total_pages,type,summary]);
+            const book = result.rows[0];
             connection.release();
-            return result.rows[0];
+            return book;
         }
         catch(err) {
             throw new Error(`Cannot post to the database: ${err}`);
@@ -38,7 +39,7 @@ export class BookStore {
         }
     }
 
-    async update(new_value: string , id: string): Promise<IBook> {
+    async edit(new_value: string , id: string): Promise<IBook> {
         try{
             const connection = await database.connect();
             const query = `UPDATE books SET author = $1 WHERE id = $2`;

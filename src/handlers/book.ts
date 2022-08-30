@@ -9,7 +9,7 @@ const index = async (_req: Request, res: Response) => {
 };
 
 const update = async (req: Request, res: Response) => {
-    const result = await books.update('Mike Tyson',req.params.id);
+    const result = await books.edit('Mike Tyson',req.params.id);
     res.json(result);
 };
 
@@ -19,7 +19,7 @@ const del = async (req: Request, res: Response) => {
 };
 
 const post = async (_req: Request, res: Response) => {
-    const result = await books.post('The art of thinking clearly', 'Rolf Dobelli', 328, 'Phsychology', 'The book talks about 99 cognitive biases and thinking fallacies in conceise way.');
+    const result = await books.create('The art of thinking clearly', 'Rolf Dobelli', 328, 'Phsychology', 'The book talks about 99 cognitive biases and thinking fallacies in conceise way.');
     res.json(result);
 };
 
