@@ -12,7 +12,8 @@ POSTGRES_HOST,
 POSTGRES_TEST,
 ENV,
 BCRYPT_PASSWORD,
-SALT_ROUNDS
+SALT_ROUNDS,
+TOKEN_SECRET
 } = process.env;
 
 let database: Pool = new Pool({
