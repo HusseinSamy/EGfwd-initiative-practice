@@ -12,10 +12,9 @@ export interface User {
 
 export class UserClass {
     async create(u: User): Promise<User> {
-        
         try{
             const db = await database.connect();
-            const sql = 'INSERT INTO users (username, password) VALUES ($1,$2)';
+            const sql = 'INSERT INTO users (username, password) VALUES ($1,$2) RETURNING *';
             const hash = bcrypt.hashSync(u.password + pepper, +saltRounds!);
             const res = await db.query(sql,[u.username, hash]);
             db.release();
