@@ -13,18 +13,18 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 app.use(express.json())
-// app.get('/books', (_req: Request, res: Response) => {
-//     res.send(books.index());
-// });
-// app.post('/books', (_req: Request, res: Response) => {
-//     res.send(books.post('The art of thinking clearly', 'Rolf Dobelli', 328, 'Phsychology', 'The book talks about 99 cognitive biases and thinking fallacies in conceise way.'));
-// });
-// app.delete('/books/:id', (req: Request, res: Response) => {
-//     res.send(books.delete(req.params.id));
-// });
-// app.put('/books/:id', (req: Request, res: Response) => {
-//     res.send(books.update('Robert Dobelli',req.params.id as string));
-// });
+app.get('/books', (_req: Request, res: Response) => {
+    res.send(books.index());
+});
+app.post('/books', (_req: Request, res: Response) => {
+    res.send(books.create('The art of thinking clearly', 'Rolf Dobelli', 328, 'Phsychology', 'The book talks about 99 cognitive biases and thinking fallacies in conceise way.'));
+});
+app.delete('/books/:id', (req: Request, res: Response) => {
+    res.send(books.delete(req.params.id));
+});
+app.put('/books/:id', (req: Request, res: Response) => {
+    res.send(books.edit('Robert Dobelli',req.params.id as string));
+});
 
 bookRouter(app);
 userRouter(app);
