@@ -12,9 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const testingPractice_1 = __importDefault(require("../testingPractice"));
+const testingPractice_1 = __importDefault(require("../_Section_1/testingPractice"));
 const supertest_1 = __importDefault(require("supertest"));
-const basicExpressApi_1 = __importDefault(require("../basicExpressApi"));
+const basicExpressApi_1 = __importDefault(require("../_Section_1/basicExpressApi"));
 const request = (0, supertest_1.default)(basicExpressApi_1.default);
 describe('Suite for myFunc function', () => {
     it('expect myFunc(5) to equal 25', () => {
@@ -45,9 +45,8 @@ describe('Suite for myFunc function', () => {
 //   } )
 // })
 describe('Suite for express basic api', () => {
-    it('expects to check api status code', (done) => __awaiter(void 0, void 0, void 0, function* () {
+    it('expects to check api status code', () => __awaiter(void 0, void 0, void 0, function* () {
         const response = yield request.get('/api');
         expect(response.status).toBe(200);
-        done();
     }));
 });
